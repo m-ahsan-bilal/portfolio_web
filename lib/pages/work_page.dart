@@ -32,7 +32,7 @@ class WorkPage extends StatelessWidget {
                     SizedBox(
                       height: screenHeight * 0.20,
                     ),
-                    Text(
+                    const Text(
                       'Work',
                       style: TextStyle(
                         fontSize: 60,
@@ -48,7 +48,7 @@ class WorkPage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        const Row(
                           // mainAxisAlignment: MainAxisAlignment.center,
                           spacing: 30,
                           children: [
@@ -75,26 +75,26 @@ class WorkPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Divider(
+                        const Divider(
                           thickness: 2,
-                          color: const Color.fromARGB(255, 186, 182, 182),
+                          color: Color.fromARGB(255, 186, 182, 182),
                         ),
-                        SizedBox(height: 30),
-                        ProjectRowWidget(),
-                        ProjectRowWidget(),
-                        ProjectRowWidget(),
-                        SizedBox(
+                        const SizedBox(height: 30),
+                        const ProjectRowWidget(),
+                        const ProjectRowWidget(),
+                        const ProjectRowWidget(),
+                        const SizedBox(
                           height: 40,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Do you like my work? You can simply ',
+                            const Text('Do you like my work? You can simply ',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.normal,
                                     fontFamily: 'Roboto')),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             HoverButton(
