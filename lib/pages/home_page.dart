@@ -128,7 +128,7 @@ class PortfolioHome extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  const Footer(),
+                  // const Footer(),
                 ],
               ),
             ),
