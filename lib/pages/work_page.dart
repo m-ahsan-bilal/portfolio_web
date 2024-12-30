@@ -9,6 +9,8 @@ class WorkPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -21,13 +23,33 @@ class WorkPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Projects and contributions to different open-source and private repositories.',
-                      style: TextStyle(fontSize: 20),
-                      textAlign: TextAlign.center,
+                    Text(
+                      'Work',
+                      style: textTheme.displayLarge,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 50),
                     // Dummy project showcases
+                    SizedBox(
+                      height: 200,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        spacing: 20,
+                        children: [
+                          Container(
+                            width: size.width * 0.15,
+                            height: size.width * 0.025,
+                            color: Colors.white,
+                          ),
+                          Container(
+                            width: size.width * 0.15,
+                            height: size.width * 0.025,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+
+                      // LIST OF PROJECTS STARTS HERE
+                    ),
                     const MyPojectCard(
                         title: "Project 1",
                         description: 'Description of project 1'),

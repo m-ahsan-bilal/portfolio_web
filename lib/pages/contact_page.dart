@@ -1,35 +1,3 @@
-// // Contact Page
-// import 'package:ahsan_dev/widgets/footer.dart';
-// import 'package:ahsan_dev/widgets/header.dart';
-// import 'package:flutter/material.dart';
-
-// class ContactPage extends StatelessWidget {
-//   const ContactPage({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Scaffold(
-//       backgroundColor: Colors.white,
-//       body: Column(
-//         children: [
-//           Header(),
-//           Center(
-//             child: Padding(
-//               padding: EdgeInsets.all(16.0),
-//               child: Text(
-//                 'Feel free to contact me at ahsan123.bilal@gmail.com or connect on LinkedIn.',
-//                 style: TextStyle(fontSize: 20),
-//                 textAlign: TextAlign.center,
-//               ),
-//             ),
-//           ),
-//           Footer(),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ahsan_dev/widgets/footer.dart';
