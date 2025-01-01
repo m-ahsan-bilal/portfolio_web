@@ -32,7 +32,7 @@ List<RouteBase> appRoutesList = [
   GoRoute(
     path: "/contact",
     name: "contact page",
-    builder: (context, state) => const ContactPage(),
+    builder: (context, state) => ContactPage(),
   ),
   GoRoute(
     path: "/resume",

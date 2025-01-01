@@ -38,7 +38,7 @@ class Footer extends StatelessWidget {
                 ),
                 Text(
                   '© Ahsan Bilal,2024. All rights reserved.',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black, fontSize: 12),
                 ),
               ],
             ),
@@ -116,7 +116,7 @@ class Footer extends StatelessWidget {
                     },
                     child: const Text(
                       'About',
-                      style: TextStyle(color: Color(0xff3D5EFC)),
+                      style: TextStyle(color: Color(0xff3D5EFC), fontSize: 12),
                     ),
                   ),
                   const SizedBox(
@@ -126,7 +126,7 @@ class Footer extends StatelessWidget {
                     onTap: () => context.go('/work'),
                     child: const Text(
                       'Work',
-                      style: TextStyle(color: Color(0xff3D5EFC)),
+                      style: TextStyle(color: Color(0xff3D5EFC), fontSize: 12),
                     ),
                   ),
                   const SizedBox(
@@ -136,7 +136,7 @@ class Footer extends StatelessWidget {
                     onTap: () => context.go('/resume'),
                     child: const Text(
                       'Resume',
-                      style: TextStyle(color: Color(0xff3D5EFC)),
+                      style: TextStyle(color: Color(0xff3D5EFC), fontSize: 12),
                     ),
                   ),
                   const SizedBox(
@@ -146,7 +146,7 @@ class Footer extends StatelessWidget {
                     onTap: () => context.go('/contact'),
                     child: const Text(
                       'Contact',
-                      style: TextStyle(color: Color(0xff3D5EFC)),
+                      style: TextStyle(color: Color(0xff3D5EFC), fontSize: 12),
                     ),
                   ),
                 ],
