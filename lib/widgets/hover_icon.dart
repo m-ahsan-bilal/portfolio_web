@@ -46,7 +46,7 @@ class _HoverIconState extends State<HoverIcon> {
             width: 50,
             decoration: BoxDecoration(
               color: isHovered ? widget.hoverColor : widget.defaultColor,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(5),
             ),
             child: Icon(
               widget.icon,

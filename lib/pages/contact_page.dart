@@ -38,11 +38,14 @@ class ContactPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment,
                 children: [
+                  SizedBox(
+                    width: 200,
+                  ),
                   // Social Media Icons Section
                   Expanded(
                     flex: 1,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [
                         HoverIcon(
                           icon: FontAwesomeIcons.linkedinIn,
@@ -66,7 +69,7 @@ class ContactPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 30),
+                  const SizedBox(width: 50),
                   // Contact Form Section
                   Expanded(
                     flex: 2,
@@ -135,6 +138,9 @@ class ContactPage extends StatelessWidget {
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    width: 50,
                   ),
                 ],
               ),

@@ -4,48 +4,47 @@ import 'package:ahsan_dev/utils/app_resources.dart';
 import 'package:flutter/material.dart';
 
 class AppDecoration {
-  BoxDecoration shadowDecoration({double? radius}) {
-    return BoxDecoration(
-      borderRadius: BorderRadius.circular(radius ?? 10),
-      color: AppResources.colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: AppResources.colors.shadowColor.withOpacity(0.16),
-          offset: const Offset(0, 9),
-          blurRadius: 25,
-        ),
-      ],
-    );
-  }
+  // BoxDecoration shadowDecoration({double? radius}) {
+  //   return BoxDecoration(
+  //     borderRadius: BorderRadius.circular(radius ?? 10),
+  //     color: AppResources.colors.white,
+  //     boxShadow: [
+  //       BoxShadow(
+  //         color: AppResources.colors.shadowColor.withOpacity(0.16),
+  //         offset: const Offset(0, 9),
+  //         blurRadius: 25,
+  //       ),
+  //     ],
+  //   );
+  // }
 
-  BoxDecoration borderDecoration({double? radius}) {
-    return BoxDecoration(
-      borderRadius: BorderRadius.circular(15),
-      color: AppResources.colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: AppResources.colors.textMediumGrey.withOpacity(.75),
-          offset: const Offset(2, 2),
-          spreadRadius: 2,
-          blurRadius: 10,
-        ),
-        BoxShadow(
-          color: AppResources.colors.textMediumGrey.withOpacity(.75),
-          offset: const Offset(-2, -2),
-          spreadRadius: 2,
-          blurRadius: 10,
-        )
-      ],
-    );
-  }
+  // BoxDecoration borderDecoration({double? radius}) {
+  //   return BoxDecoration(
+  //     borderRadius: BorderRadius.circular(15),
+  //     color: AppResources.colors.white,
+  //     boxShadow: [
+  //       BoxShadow(
+  //         color: AppResources.colors.textMediumGrey.withOpacity(.75),
+  //         offset: const Offset(2, 2),
+  //         spreadRadius: 2,
+  //         blurRadius: 10,
+  //       ),
+  //       BoxShadow(
+  //         color: AppResources.colors.textMediumGrey.withOpacity(.75),
+  //         offset: const Offset(-2, -2),
+  //         spreadRadius: 2,
+  //         blurRadius: 10,
+  //       )
+  //     ],
+  //   );
+  // }
 
-  BoxDecoration dialogDecoration({double? radius}) {
-    return BoxDecoration(
-      borderRadius: BorderRadius.circular(radius ?? 10),
-      color: AppResources.colors.white,
-    );
-  }
-
+  // BoxDecoration dialogDecoration({double? radius}) {
+  //   return BoxDecoration(
+  //     borderRadius: BorderRadius.circular(radius ?? 10),
+  //     color: AppResources.colors.white,
+  //   );
+  // }
   InputDecoration fieldDecoration({
     required BuildContext context,
     Widget? preIcon,
@@ -70,25 +69,23 @@ class AppDecoration {
           fillColor ?? const Color(0xffF1F4FE), // White or light background
       contentPadding: const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
+        borderRadius: BorderRadius.all(Radius.circular(radius ?? 5)),
         borderSide: const BorderSide(
+          width: 2,
           color: Color(0xffCCD7FD),
-          // color: AppResources.colors.textMediumGrey.withOpacity(0.5),
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
-        borderSide: const BorderSide(color: Color(0xffCCD7FD)
-            // color: AppResources.colors.primaryColor, // Highlighted color
-            ),
+        borderSide: const BorderSide(width: 2, color: Color(0xffCCD7FD)),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
-        borderSide: const BorderSide(color: Color(0xffCCD7FD)),
+        borderSide: const BorderSide(width: 2, color: Color(0xffCCD7FD)),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 10)),
-        borderSide: const BorderSide(color: Color(0xffCCD7FD)),
+        borderSide: const BorderSide(width: 2, color: Color(0xffCCD7FD)),
       ),
     );
   }
