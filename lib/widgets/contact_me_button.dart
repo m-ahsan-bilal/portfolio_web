@@ -7,12 +7,12 @@ class HoverButton extends StatefulWidget {
   final bool isOutlined;
 
   const HoverButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.color = Colors.blue,
     this.isOutlined = false,
-  }) : super(key: key);
+  });
 
   @override
   _HoverButtonState createState() => _HoverButtonState();

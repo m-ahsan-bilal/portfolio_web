@@ -1,5 +1,4 @@
 import 'package:ahsan_dev/widgets/custom_button.dart';
-import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

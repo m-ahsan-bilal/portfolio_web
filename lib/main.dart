@@ -3,7 +3,7 @@ import 'package:ahsan_dev/utils/themes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyPortfolioApp());
 }
 

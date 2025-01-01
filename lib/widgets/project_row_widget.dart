@@ -26,7 +26,7 @@ class ProjectRowWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: sqrt1_2,
               ),
               Text(
@@ -34,7 +34,7 @@ class ProjectRowWidget extends StatelessWidget {
                 style: TextStyle(
                     fontSize: screenWidth * 0.018, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Text(

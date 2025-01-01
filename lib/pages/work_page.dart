@@ -1,10 +1,7 @@
 // Work Page
-import 'dart:math';
 
 import 'package:ahsan_dev/widgets/contact_me_button.dart';
-import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
-import 'package:ahsan_dev/widgets/my_poject_card.dart';
 import 'package:ahsan_dev/widgets/project_row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

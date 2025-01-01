@@ -1,5 +1,4 @@
 // Footer Widget
-import 'package:ahsan_dev/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -62,7 +61,7 @@ class Footer extends StatelessWidget {
                       width: 25,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   InkWell(
@@ -75,7 +74,7 @@ class Footer extends StatelessWidget {
                       width: 25,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   InkWell(
@@ -88,7 +87,7 @@ class Footer extends StatelessWidget {
                       width: 25,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   InkWell(
