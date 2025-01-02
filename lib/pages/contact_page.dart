@@ -38,15 +38,15 @@ class ContactPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 200,
                   ),
                   // Social Media Icons Section
-                  Expanded(
+                  const Expanded(
                     flex: 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
+                      children: [
                         HoverIcon(
                           icon: FontAwesomeIcons.linkedinIn,
                           label: 'LinkedIn',
@@ -139,7 +139,7 @@ class ContactPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 50,
                   ),
                 ],
