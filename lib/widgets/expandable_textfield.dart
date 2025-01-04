@@ -1,4 +1,5 @@
 import 'package:ahsan_dev/utils/app_resources.dart';
+import 'package:ahsan_dev/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class ExpandableTextField extends StatefulWidget {
@@ -38,8 +39,8 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: _maxHeight,
+    return Flexible(
+      fit: FlexFit.loose,
       child: Column(
         children: <Widget>[
           SizedBox(
@@ -79,6 +80,16 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
                     },
                   )),
             ]),
+          ),
+          SizedBox(height: _dividerSpace),
+          Align(
+            alignment: Alignment.topLeft,
+            child: CustomButton(
+              text: 'Send Message',
+              color: const Color(0xff0B3FF7),
+              onPressed: () {},
+              textColor: Colors.white,
+            ),
           ),
         ],
       ),

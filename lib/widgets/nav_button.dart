@@ -7,14 +7,15 @@ class NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: Text(
         title,
         style: const TextStyle(
             color: Color(0xff3D5EFC),
             fontSize: 18,
-            fontWeight: FontWeight.bold),
+            fontFamily: 'roboto',
+            fontWeight: FontWeight.w700),
       ),
     );
   }

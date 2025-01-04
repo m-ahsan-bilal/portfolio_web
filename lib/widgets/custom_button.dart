@@ -18,24 +18,43 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    double horizontalPadding = screenWidth > 1024
+        ? 40
+        : screenWidth > 768
+            ? 30
+            : 20;
+    double verticalPadding = screenWidth > 1024
+        ? 25
+        : screenWidth > 768
+            ? 15
+            : 10;
+    double fontSize = screenWidth > 1024
+        ? 18
+        : screenWidth > 768
+            ? 16
+            : 14;
+
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: isOutlined ? Colors.white : color,
-        // side: isOutlined ? BorderSide(color: color, width: 2) : BorderSide.none,
         elevation: isOutlined ? 0 : 4,
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+        padding: EdgeInsets.symmetric(
+          horizontal: horizontalPadding,
+          vertical: verticalPadding,
+        ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(2),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
       onPressed: onPressed,
       child: Text(
         text,
         style: TextStyle(
-          color:
-              //  Color(0xff0B3FF7),
-              isOutlined ? color : Colors.white,
+          color: isOutlined ? color : Colors.white,
           fontWeight: FontWeight.bold,
+          fontSize: fontSize,
         ),
       ),
     );

@@ -81,21 +81,21 @@ class AppDecoration {
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 5)),
         borderSide: const BorderSide(
-          width: 2, // Thicker border when focused
+          width: 3, // Thicker border when focused
           color: Color(0xffCCD7FD), // Border color on focus
         ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 5)),
         borderSide: const BorderSide(
-          width: 2,
+          width: 3,
           color: Color(0xffCCD7FD),
         ),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(Radius.circular(radius ?? 5)),
         borderSide: const BorderSide(
-          width: 2,
+          width: 3,
           color: Color(0xffCCD7FD),
         ),
       ),

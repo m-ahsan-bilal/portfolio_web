@@ -1,4 +1,5 @@
 import 'package:ahsan_dev/widgets/custom_button.dart';
+import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -8,97 +9,152 @@ class PortfolioHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    double titleFontSize = screenWidth > 1024
+        ? 70
+        : screenWidth > 768
+            ? 50
+            : 40;
+    double subtitleFontSize = screenWidth > 1024
+        ? 50
+        : screenWidth > 768
+            ? 40
+            : 30;
+    double contentFontSize = screenWidth > 1024
+        ? 28
+        : screenWidth > 768
+            ? 24
+            : 18;
+    double paragraphFontSize = screenWidth > 1024
+        ? 16
+        : screenWidth > 768
+            ? 14
+            : 12;
+
+    EdgeInsetsGeometry contentPadding = EdgeInsets.symmetric(
+      horizontal: screenWidth > 1024
+          ? 50
+          : screenWidth > 768
+              ? 30
+              : 15,
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           children: [
             const Header(),
-            const SizedBox(
-              height: 180,
+            SizedBox(
+              height: screenWidth > 1024
+                  ? 180
+                  : screenWidth > 768
+                      ? 120
+                      : 80,
             ),
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
+                  Text(
                     'A developer',
                     style: TextStyle(
-                      fontSize: 70,
+                      fontSize: titleFontSize,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
-                  const Text(
+                  Text(
                     'you need.',
-                    style: TextStyle(fontSize: 50, color: Colors.black),
+                    style: TextStyle(
+                      fontSize: subtitleFontSize,
+                      color: Colors.black,
+                    ),
                   ),
-                  const SizedBox(height: 190),
+                  SizedBox(height: screenWidth > 1024 ? 190 : 120),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    padding: contentPadding,
+                    child: Column(
                       children: [
-                        const Expanded(
-                          // Use Expanded for better layout
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment
-                                .start, // Align text to the left
-                            children: [
-                              Text(
-                                'I’m Ahsan Bilal, a passionate developer.',
-                                style: TextStyle(
-                                    fontSize: 28,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'I’m Ahsan Bilal, a passionate developer.',
+                                    style: TextStyle(
+                                      fontSize: contentFontSize,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  Text(
+                                    'I discovered my love for programming during bachelors, and it has transformed a curiosity into a fulfilling career.',
+                                    style: TextStyle(
+                                      fontSize: paragraphFontSize,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'Specialized in Flutter development, I bring ideas to life through beautiful and functional applications, allowing me to create seamless experiences across platforms.',
+                                    style: TextStyle(
+                                      fontSize: paragraphFontSize,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'When I’m not coding, you’ll likely find me exploring nature on my bike or enjoying a good book under the open sky, drawing inspiration from the world around me.',
+                                    style: TextStyle(
+                                      fontSize: paragraphFontSize,
+                                      color: Colors.black,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
                               ),
-                              SizedBox(
-                                height: 30,
-                              ),
-                              Text(
-                                'I discovered my love for programming during bachhelors, and it has transformed a curiosity into a fulfilling career.',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
+                            ),
+                            SizedBox(width: 20),
+                            if (screenWidth > 768)
+                              Expanded(
+                                child: Image.asset(
+                                  'assets/images/photo.jpg',
+                                  height: screenWidth > 1024 ? 300 : 200,
                                 ),
-                                textAlign: TextAlign.left,
                               ),
-                              SizedBox(height: 10),
-                              Text(
-                                'I Specialized in Flutter development, I bring ideas to life through beautiful and functional applications, allowing me to create seamless experiences across platforms.',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                'When I’m not coding, you’ll likely find me exploring nature on my bike or enjoying a good book under the open sky, drawing inspiration from the world around me.',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
-                            ],
-                          ),
+                          ],
                         ),
-                        Expanded(
-                          child: Image.asset(
-                            'assets/images/photo.jpg',
-                            height: 300,
+                        if (screenWidth <= 768)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20),
+                            child: Image.asset(
+                              'assets/images/photo.jpg',
+                              height: 200,
+                            ),
                           ),
-                        ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 80,
+                  SizedBox(
+                    height: screenWidth > 1024
+                        ? 80
+                        : screenWidth > 768
+                            ? 50
+                            : 30,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 80),
+                      horizontal: 10,
+                      vertical: 80,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -109,11 +165,10 @@ class PortfolioHome extends StatelessWidget {
                           onPressed: () {
                             context.go('/resume');
                           },
-                          // isOutlined: true, // Outlined style
                         ),
-                        const SizedBox(width: 30),
+                        SizedBox(width: screenWidth * 0.05),
                         const Text("or"),
-                        const SizedBox(width: 30),
+                        SizedBox(width: screenWidth * 0.05),
                         CustomButton(
                           textColor: Colors.white,
                           text: 'contact me',
@@ -126,10 +181,10 @@ class PortfolioHome extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  // const Footer(),
                 ],
               ),
             ),
+            const Footer(),
           ],
         ),
       ),

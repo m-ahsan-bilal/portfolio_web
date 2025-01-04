@@ -51,14 +51,14 @@ class _HoverIconState extends State<HoverIcon> {
             child: Icon(
               widget.icon,
               size: widget.iconSize,
-              color: const Color(0xff305CF8),
+              color: const Color(0xff3D5EFC),
             ),
           ),
           const SizedBox(width: 15),
           Text(
             widget.label,
             style: GoogleFonts.roboto(
-              color: const Color(0xff305CF8),
+              color: const Color(0xff3D5EFC),
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),

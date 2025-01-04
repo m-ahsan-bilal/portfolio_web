@@ -7,60 +7,230 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 50),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          NavButton(
-            title: "About",
-            onTap: () {
-              context.go('/');
-            },
-          ),
-          Spacer(flex: 1), // Adjust spacing for consistency
-          NavButton(
-            title: "Work",
-            onTap: () {
-              context.go('/work');
-            },
-          ),
-          Spacer(flex: 1),
-          Align(
-            alignment: Alignment.center,
-            child: InkWell(
-              onTap: () {
-                context.go('/');
-              },
-              child: const Text(
-                'Ahsan Bilal',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'roboto',
-                  fontWeight: FontWeight.w300,
-                  height: 1.2, // Adjust the line height
-                  fontSize: 50,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+
+        if (screenWidth >= 1280 && screenWidth <= 1439) {
+          // Laptop view
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                NavButton(
+                  title: "About",
+                  onTap: () {
+                    context.go('/');
+                  },
                 ),
-                textAlign: TextAlign.center,
-              ),
+                const Spacer(),
+                NavButton(
+                  title: "Work",
+                  onTap: () {
+                    context.go('/work');
+                  },
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    context.go('/');
+                  },
+                  child: const Text(
+                    'Ahsan Bilal',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w300,
+                      height: 1.2,
+                      fontSize: 40,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                NavButton(
+                  title: "Resume",
+                  onTap: () {
+                    context.go('/resume');
+                  },
+                ),
+                const Spacer(),
+                NavButton(
+                  title: "Contact",
+                  onTap: () {
+                    context.go('/contact');
+                  },
+                ),
+              ],
             ),
-          ),
-          Spacer(flex: 1),
-          NavButton(
-            title: "Resume",
-            onTap: () {
-              context.go('/resume');
-            },
-          ),
-          Spacer(flex: 1), // Adjust spacing for consistency
-          NavButton(
-            title: "Contact",
-            onTap: () {
-              context.go('/contact');
-            },
-          ),
-        ],
-      ),
+          );
+        } else if (screenWidth >= 768 && screenWidth <= 1023) {
+          // Tablet view
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    context.go('/');
+                  },
+                  child: const Text(
+                    'Ahsan Bilal',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w300,
+                      height: 1.2,
+                      fontSize: 35,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    NavButton(
+                      title: "About",
+                      onTap: () {
+                        context.go('/');
+                      },
+                    ),
+                    NavButton(
+                      title: "Work",
+                      onTap: () {
+                        context.go('/work');
+                      },
+                    ),
+                    NavButton(
+                      title: "Resume",
+                      onTap: () {
+                        context.go('/resume');
+                      },
+                    ),
+                    NavButton(
+                      title: "Contact",
+                      onTap: () {
+                        context.go('/contact');
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        } else if (screenWidth >= 320 && screenWidth <= 480) {
+          // Mobile view
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    context.go('/');
+                  },
+                  child: const Text(
+                    'Ahsan Bilal',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w300,
+                      height: 1.2,
+                      fontSize: 28,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Column(
+                  children: [
+                    NavButton(
+                      title: "About",
+                      onTap: () {
+                        context.go('/');
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    NavButton(
+                      title: "Work",
+                      onTap: () {
+                        context.go('/work');
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    NavButton(
+                      title: "Resume",
+                      onTap: () {
+                        context.go('/resume');
+                      },
+                    ),
+                    const SizedBox(height: 10),
+                    NavButton(
+                      title: "Contact",
+                      onTap: () {
+                        context.go('/contact');
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        } else {
+          // Default view
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 30),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    context.go('/');
+                  },
+                  child: const Text(
+                    'Ahsan Bilal',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w300,
+                      height: 1.2,
+                      fontSize: 35,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    NavButton(
+                      title: "About",
+                      onTap: () {
+                        context.go('/');
+                      },
+                    ),
+                    NavButton(
+                      title: "Work",
+                      onTap: () {
+                        context.go('/work');
+                      },
+                    ),
+                    NavButton(
+                      title: "Resume",
+                      onTap: () {
+                        context.go('/resume');
+                      },
+                    ),
+                    NavButton(
+                      title: "Contact",
+                      onTap: () {
+                        context.go('/contact');
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+          // return Container();
+        }
+      },
     );
   }
 }
