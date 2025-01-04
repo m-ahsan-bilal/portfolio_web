@@ -32,7 +32,8 @@ class Project {
     ),
     Project(
       title: 'E-commerce Website',
-      description: 'A feature-rich e-commerce platform built with Django.',
+      description:
+          'A feature-rich e-commerce  clothing website built with Flutter.',
       images: [
         'assets/model/image1.png',
         'assets/model/image1.png',
@@ -42,8 +43,7 @@ class Project {
     ),
     Project(
       title: 'Portfolio Website',
-      description:
-          'A personal portfolio website built using HTML, CSS, and JavaScript.',
+      description: 'A personal portfolio website built using Flutter and Dart.',
       images: [
         'assets/model/image1.png',
         'assets/model/image1.png',

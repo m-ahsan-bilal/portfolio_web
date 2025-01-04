@@ -13,7 +13,7 @@ class MyPortfolioApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Ahsan Bilal Portfolio',
+      title: 'Ahsan.Dev',
       theme: AppTheme.lightTheme(context),
       darkTheme: AppTheme.darkTheme(context),
 
