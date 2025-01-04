@@ -24,33 +24,41 @@ class _ContactPageState extends State<ContactPage> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Header(),
             const SizedBox(height: 60),
-            const Text(
-              'Contact Us',
-              style: TextStyle(
-                fontSize: 36,
-                fontWeight: FontWeight.bold,
+            const Center(
+              child: Text(
+                'Contact',
+                style: TextStyle(
+                  fontSize: 60,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'roboto',
+                ),
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.ltr,
               ),
             ),
             const SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+            Container(
+              constraints:
+                  const BoxConstraints(maxWidth: 1050), // Constrain Row width
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const SizedBox(width: 200), // Adjusted padding on the left
-
+                  SizedBox(width: screenWidth * 0.1),
+                  // SizedBox(width: 150),
                   // Social Media Icons Section
                   const Expanded(
                     flex: 1,
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         HoverIcon(
                             icon: FontAwesomeIcons.linkedinIn,
@@ -68,77 +76,50 @@ class _ContactPageState extends State<ContactPage> {
                       ],
                     ),
                   ),
-
-                  const SizedBox(width: 50),
-
+                  SizedBox(width: screenWidth * 0.1),
                   // Contact Form Section
-                  Column(
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Form(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Email Field
-                              TextFormField(
-                                controller: emailController,
-                                focusNode: emailFocus,
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration:
-                                    AppResources.decoration.fieldDecoration(
-                                  context: context,
-                                  hintText: "Email Address",
-                                ),
-                                style: const TextStyle(fontSize: 16),
-                              ),
-                              const SizedBox(height: 20),
-
-                              // Subject Field
-                              TextFormField(
-                                controller: subjectController,
-                                focusNode: subjectFocus,
-                                textInputAction: TextInputAction.next,
-                                maxLines: 1,
-                                decoration:
-                                    AppResources.decoration.fieldDecoration(
-                                  context: context,
-                                  hintText: "Subject",
-                                ),
-                                style: const TextStyle(fontSize: 16),
-                              ),
-                              const SizedBox(height: 20),
-
-                              // Message Field with Expandable TextField
-                              ExpandableTextField(
-                                height: 100,
-                                maxHeight: 300,
-                                dividerHeight: 20,
-                                dividerSpace: 2,
-                                key: const Key('message'),
-                                child: TextFormField(
-                                  controller: messageController,
-                                  focusNode: messageFocus,
-                                  maxLines: null,
-                                  expands: true,
-                                  decoration:
-                                      AppResources.decoration.fieldDecoration(
-                                    context: context,
-                                    hintText: "Message",
-                                  ),
-                                  style: const TextStyle(fontSize: 16),
-                                ),
-                              ),
-
-                              // Row to keep the button next to the fields
-                            ],
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.
+                      children: [
+                        // Email Field
+                        TextFormField(
+                          controller: emailController,
+                          focusNode: emailFocus,
+                          textInputAction: TextInputAction.next,
+                          maxLines: 1,
+                          decoration: AppResources.decoration.fieldDecoration(
+                            context: context,
+                            hintText: "Email Address",
                           ),
+                          style: const TextStyle(fontSize: 16),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 20),
+                        // Subject Field
+                        TextFormField(
+                          controller: subjectController,
+                          focusNode: subjectFocus,
+                          textInputAction: TextInputAction.next,
+                          maxLines: 1,
+                          decoration: AppResources.decoration.fieldDecoration(
+                            context: context,
+                            hintText: "Subject",
+                          ),
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 20),
+                        // Message Field
+                        const ExpandableTextField(
+                          height: 250,
+                          maxHeight: 400,
+                          dividerHeight: 20,
+                          dividerSpace: 2,
+                          key: Key('message'),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(width: 50),
                 ],
               ),
             ),

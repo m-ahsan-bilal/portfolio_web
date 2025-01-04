@@ -1,3 +1,4 @@
+import 'package:ahsan_dev/utils/app_resources.dart';
 import 'package:flutter/material.dart';
 
 class ExpandableTextField extends StatefulWidget {
@@ -5,11 +6,11 @@ class ExpandableTextField extends StatefulWidget {
   final double maxHeight;
   final double dividerHeight;
   final double dividerSpace;
-  final Widget child;
+  // final Widget child;
 
   const ExpandableTextField({
     required Key key,
-    required this.child,
+    // required this.child,
     this.height = 44,
     this.maxHeight = 300,
     this.dividerHeight = 40,
@@ -32,6 +33,9 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
     _dividerSpace = widget.dividerSpace;
   }
 
+  final messageController = TextEditingController();
+  final messageFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -40,29 +44,42 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
         children: <Widget>[
           SizedBox(
             height: _height,
-            child: widget.child,
+            child: Stack(children: [
+              TextFormField(
+                textAlignVertical: TextAlignVertical.top,
+                controller: messageController,
+                focusNode: messageFocus,
+                maxLines: null,
+                expands: true,
+                decoration: AppResources.decoration.fieldDecoration(
+                  context: context,
+                  hintText: "Message",
+                ),
+                style: const TextStyle(fontSize: 16),
+              ),
+              Positioned(
+                  bottom: 8,
+                  right: 8,
+                  child: GestureDetector(
+                    child: Image.asset('assets/images/resize.png',
+                        height: 15, width: 15),
+                    onPanUpdate: (details) {
+                      setState(() {
+                        _height += details.delta.dy;
+
+                        // prevent overflow if height is more/less than available space
+                        var maxLimit =
+                            _maxHeight - _dividerHeight - _dividerSpace;
+                        var minLimit = 44.0;
+
+                        if (_height > maxLimit)
+                          _height = maxLimit;
+                        else if (_height < minLimit) _height = minLimit;
+                      });
+                    },
+                  )),
+            ]),
           ),
-          SizedBox(height: _dividerSpace),
-          Container(
-            height: _dividerHeight,
-            width: 60,
-            child: GestureDetector(
-              child: FittedBox(child: Text("----")),
-              onPanUpdate: (details) {
-                setState(() {
-                  _height += details.delta.dy;
-
-                  // prevent overflow if height is more/less than available space
-                  var maxLimit = _maxHeight - _dividerHeight - _dividerSpace;
-                  var minLimit = 44.0;
-
-                  if (_height > maxLimit)
-                    _height = maxLimit;
-                  else if (_height < minLimit) _height = minLimit;
-                });
-              },
-            ),
-          )
         ],
       ),
     );
