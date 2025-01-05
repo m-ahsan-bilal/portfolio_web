@@ -1,6 +1,5 @@
 import 'package:ahsan_dev/model/project_model.dart';
 import 'package:ahsan_dev/widgets/contact_me_button.dart';
-
 import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
 import 'package:ahsan_dev/widgets/project_row_widget.dart';
@@ -49,7 +48,6 @@ class _WorkPageState extends State<WorkPage> {
         child: Column(
           children: [
             const Header(),
-            // Header and category selectors
             SizedBox(height: screenHeight * 0.1),
             const Text(
               'Work',
@@ -65,10 +63,13 @@ class _WorkPageState extends State<WorkPage> {
                 return GestureDetector(
                   onTap: () => _onCategorySelected(index),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text(
                       _categories[index],
                       style: TextStyle(
+                        color: _selectedCategoryIndex == index
+                            ? const Color(0xff3D5EFC)
+                            : Colors.black,
                         fontSize: 18,
                         fontWeight: _selectedCategoryIndex == index
                             ? FontWeight.bold
@@ -79,7 +80,6 @@ class _WorkPageState extends State<WorkPage> {
                 );
               }),
             ),
-            const Divider(thickness: 2, color: Colors.grey),
             SizedBox(height: screenHeight * 0.02),
             // Project list
             ListView.builder(
@@ -117,18 +117,7 @@ class _WorkPageState extends State<WorkPage> {
                     onPressed: () {
                       context.go('/contact');
                     },
-
-                    // isOutlined: true,
                   ),
-                  // CustomButton(
-                  //   text: 'contact me',
-                  //   color: const Color(0xff3D5EFC),
-                  //   onPressed: () {
-                  //     context.go('/contact');
-                  //   },
-                  //   textColor: Colors.white,
-                  //   // isOutlined: true,
-                  // ),
                 ],
               ),
             ),
