@@ -2,7 +2,6 @@ import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:pdfx/pdfx.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
