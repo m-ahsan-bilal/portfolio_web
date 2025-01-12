@@ -1,5 +1,6 @@
 import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
+import 'package:ahsan_dev/widgets/pdf_view.dart';
 import 'package:flutter/material.dart';
 import 'package:pdfx/pdfx.dart';
 
@@ -8,34 +9,35 @@ class ResumePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Header(),
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text(
-                  'My Resume',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
+            Header(),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text(
+                'My Resume',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 700,
-              width: 500,
-              child: PdfView(
-                controller: PdfController(
-                  document: PdfDocument.openAsset('assets/images/resume.pdf'),
-                ),
-              ),
-            ),
-            const SizedBox(height: 50),
-            const Footer(),
+            SizedBox(height: 20),
+            PDFViewPage(),
+            // SizedBox(
+            //   height: 700,
+            //   width: double.infinity,
+            //   child: PdfView(
+            //     controller: PdfController(
+            //       document: PdfDocument.openAsset('assets/images/resume.pdf'),
+            //       initialPage: 1,
+            //     ),
+            //   ),
+            // ),
+            SizedBox(height: 50),
+            Footer(),
           ],
         ),
       ),

@@ -92,7 +92,7 @@ class PortfolioHome extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   Text(
                                     'I discovered my love for programming during bachelors, and it has transformed a curiosity into a fulfilling career.',
                                     style: TextStyle(
@@ -101,7 +101,7 @@ class PortfolioHome extends StatelessWidget {
                                     ),
                                     textAlign: TextAlign.left,
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(
                                     'Specialized in Flutter development, I bring ideas to life through beautiful and functional applications, allowing me to create seamless experiences across platforms.',
                                     style: TextStyle(
@@ -110,7 +110,7 @@ class PortfolioHome extends StatelessWidget {
                                     ),
                                     textAlign: TextAlign.left,
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(
                                     'When I’m not coding, you’ll likely find me exploring nature on my bike or enjoying a good book under the open sky, drawing inspiration from the world around me.',
                                     style: TextStyle(
@@ -122,10 +122,10 @@ class PortfolioHome extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             if (screenWidth > 768)
                               Expanded(
-                                child: Image.asset(
+                                child: Image.network(
                                   'assets/images/photo.jpg',
                                   height: screenWidth > 1024 ? 300 : 200,
                                 ),
@@ -135,7 +135,7 @@ class PortfolioHome extends StatelessWidget {
                         if (screenWidth <= 768)
                           Padding(
                             padding: const EdgeInsets.only(top: 20),
-                            child: Image.asset(
+                            child: Image.network(
                               'assets/images/photo.jpg',
                               height: 200,
                             ),

@@ -124,7 +124,7 @@ class Footer extends StatelessWidget {
         const SizedBox(width: 20),
         _buildSocialIcon(FontAwesomeIcons.upwork,
             "https://www.upwork.com/freelancers/~01f91421d66ccc3ffa?mp_source=share"),
-        SizedBox(
+        const SizedBox(
           width: 10,
         )
       ],

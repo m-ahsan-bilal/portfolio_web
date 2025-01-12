@@ -73,9 +73,9 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
                             _maxHeight - _dividerHeight - _dividerSpace;
                         var minLimit = 44.0;
 
-                        if (_height > maxLimit)
+                        if (_height > maxLimit) {
                           _height = maxLimit;
-                        else if (_height < minLimit) _height = minLimit;
+                        } else if (_height < minLimit) _height = minLimit;
                       });
                     },
                   )),

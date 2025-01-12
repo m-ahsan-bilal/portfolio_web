@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class WorkPage extends StatefulWidget {
-  const WorkPage({Key? key}) : super(key: key);
+  const WorkPage({super.key});
 
   @override
   _WorkPageState createState() => _WorkPageState();

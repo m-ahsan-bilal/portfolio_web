@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ProjectRowWidget extends StatelessWidget {
   final Project project;
 
-  const ProjectRowWidget({Key? key, required this.project}) : super(key: key);
+  const ProjectRowWidget({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {

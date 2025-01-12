@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ContactPage extends StatefulWidget {
-  ContactPage({super.key});
+  const ContactPage({super.key});
 
   @override
   State<ContactPage> createState() => _ContactPageState();
