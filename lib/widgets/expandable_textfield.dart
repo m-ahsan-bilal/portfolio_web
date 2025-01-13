@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ahsan_dev/utils/app_resources.dart';
 import 'package:ahsan_dev/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +77,9 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
 
                         if (_height > maxLimit) {
                           _height = maxLimit;
-                        } else if (_height < minLimit) _height = minLimit;
+                        } else if (_height < minLimit) {
+                          _height = minLimit;
+                        }
                       });
                     },
                   )),
