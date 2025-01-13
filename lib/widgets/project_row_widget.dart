@@ -115,7 +115,7 @@ class ProjectRowWidget extends StatelessWidget {
     );
   }
 
-  // Small Screen Layout (<575px)
+  // small screen < 575
   Widget _buildSmallScreenLayout(Project project) {
     return Padding(
       padding: const EdgeInsets.all(10),
@@ -151,7 +151,7 @@ class ProjectRowWidget extends StatelessWidget {
               ],
             ),
           ),
-          // Grid View for Images (2x2)
+          // 2 by 2 images view
           GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),

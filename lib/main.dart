@@ -16,12 +16,6 @@ class MyPortfolioApp extends StatelessWidget {
       title: 'Ahsan.Dev',
       theme: AppTheme.lightTheme(context),
       darkTheme: AppTheme.darkTheme(context),
-
-      // theme: ThemeData(
-      // primaryColor: Colors.white,
-      // fontFamily: 'Roboto',
-
-      // ),
       routerConfig: basicRoutes,
     );
   }

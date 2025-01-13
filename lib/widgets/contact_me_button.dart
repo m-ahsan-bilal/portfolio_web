@@ -55,9 +55,10 @@ class _HoverButtonState extends State<HoverButton> {
         child: Text(
           widget.text,
           style: TextStyle(
-            color: widget.isOutlined ? widget.color : Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+              color: widget.isOutlined ? widget.color : Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              fontFamily: "Roboto"),
         ),
       ),
     );

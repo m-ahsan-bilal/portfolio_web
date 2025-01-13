@@ -48,6 +48,7 @@ class _WorkPageState extends State<WorkPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const Header(),
             Padding(
               padding: screenWidth >= 768
                   ? const EdgeInsets.symmetric(horizontal: 40)
@@ -56,7 +57,6 @@ class _WorkPageState extends State<WorkPage> {
                       : const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 children: [
-                  const Header(),
                   SizedBox(height: screenHeight * 0.2),
                   const Text(
                     'Work',
