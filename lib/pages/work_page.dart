@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:ahsan_dev/model/project_model.dart';
 import 'package:ahsan_dev/widgets/contact_me_button.dart';
 import 'package:ahsan_dev/widgets/footer.dart';

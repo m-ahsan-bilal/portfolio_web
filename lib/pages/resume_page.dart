@@ -2,6 +2,7 @@ import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
 import 'package:ahsan_dev/widgets/pdf_view.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
 import 'package:pdfx/pdfx.dart';
 
 class ResumePage extends StatelessWidget {
@@ -9,14 +10,14 @@ class ResumePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Header(),
-            Padding(
+            const Header(),
+            const Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
                 'My Resume',
@@ -24,20 +25,10 @@ class ResumePage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             PDFViewPage(),
-            // SizedBox(
-            //   height: 700,
-            //   width: double.infinity,
-            //   child: PdfView(
-            //     controller: PdfController(
-            //       document: PdfDocument.openAsset('assets/images/resume.pdf'),
-            //       initialPage: 1,
-            //     ),
-            //   ),
-            // ),
-            SizedBox(height: 50),
-            Footer(),
+            const SizedBox(height: 50),
+            const Footer(),
           ],
         ),
       ),

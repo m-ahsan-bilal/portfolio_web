@@ -1,3 +1,4 @@
+import 'package:ahsan_dev/utils/app_images.dart';
 import 'package:ahsan_dev/widgets/custom_button.dart';
 import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
@@ -126,7 +127,8 @@ class PortfolioHome extends StatelessWidget {
                             if (screenWidth > 768)
                               Expanded(
                                 child: Image.network(
-                                  'assets/images/photo.jpg',
+                                  // 'assets/images/photo.png',
+                                  AppImages.photo,
                                   height: screenWidth > 1024 ? 300 : 200,
                                 ),
                               ),
@@ -136,7 +138,7 @@ class PortfolioHome extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 20),
                             child: Image.network(
-                              'assets/images/photo.jpg',
+                              'assets/images/photo.png',
                               height: 200,
                             ),
                           ),
