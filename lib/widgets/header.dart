@@ -18,6 +18,9 @@ class Header extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                const SizedBox(
+                  width: 15,
+                ),
                 NavButton(
                   title: "About",
                   onTap: () {
@@ -60,6 +63,9 @@ class Header extends StatelessWidget {
                   onTap: () {
                     context.go('/contact');
                   },
+                ),
+                const SizedBox(
+                  width: 15,
                 ),
               ],
             ),
@@ -118,11 +124,12 @@ class Header extends StatelessWidget {
               ],
             ),
           );
-        } else if (screenWidth >= 320 && screenWidth <= 480) {
+        } else if (screenWidth <= 320 && screenWidth <= 480) {
           // Mobile view
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
                   onTap: () {

@@ -6,15 +6,14 @@ class ContainerProject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    // final screenWidth = MediaQuery.of(context).size.width;
+    // final screenHeight = MediaQuery.of(context).size.height;
     return Container(
       padding: const EdgeInsets.all(10),
-      width: screenWidth * 0.15,
-      height: screenHeight * 0.30,
+      width: 200,
+      height: 200,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        // color: Colors.pink,
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Image.asset(
         imagePath,

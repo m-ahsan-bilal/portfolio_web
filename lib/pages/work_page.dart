@@ -30,6 +30,7 @@ class _WorkPageState extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.sizeOf(context).width;
 
     // Filter projects based on the selected category
     final filteredProjects = _categories[_selectedCategoryIndex] == "All"
@@ -47,82 +48,115 @@ class _WorkPageState extends State<WorkPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Header(),
-            SizedBox(height: screenHeight * 0.1),
-            const Text(
-              'Work',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            SizedBox(height: screenHeight * 0.05),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(_categories.length, (index) {
-                return GestureDetector(
-                  onTap: () => _onCategorySelected(index),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      _categories[index],
-                      style: TextStyle(
-                        color: _selectedCategoryIndex == index
-                            ? const Color(0xff3D5EFC)
-                            : Colors.black,
-                        fontSize: 18,
-                        fontWeight: _selectedCategoryIndex == index
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                      ),
-                    ),
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: screenHeight * 0.02),
-            // Project list
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: filteredProjects.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: ProjectRowWidget(
-                    project: filteredProjects[index],
-                  ),
-                );
-              },
-            ),
-            SizedBox(
-              height: screenHeight * 0.2,
-            ),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            Padding(
+              padding: screenWidth >= 768
+                  ? const EdgeInsets.symmetric(horizontal: 40)
+                  : screenWidth <= 768
+                      ? const EdgeInsets.symmetric(horizontal: 20)
+                      : const EdgeInsets.symmetric(horizontal: 40),
+              child: Column(
                 children: [
+                  const Header(),
+                  SizedBox(height: screenHeight * 0.2),
                   const Text(
-                    "Do you like my portfolio? You can simply ",
+                    'Work',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 70,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(height: screenHeight * 0.2),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: List.generate(_categories.length, (index) {
+                      return GestureDetector(
+                        onTap: () => _onCategorySelected(index),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            _categories[index],
+                            style: TextStyle(
+                              color: _selectedCategoryIndex == index
+                                  ? const Color(0xff3D5EFC)
+                                  : Colors.black,
+                              fontSize: 18,
+                              fontWeight: _selectedCategoryIndex == index
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
                   ),
-                  HoverButton(
-                    text: 'contact me',
-                    color: const Color(0xff3D5EFC),
-                    onPressed: () {
-                      context.go('/contact');
+                  SizedBox(height: screenHeight * 0.02),
+                  // Project list
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: filteredProjects.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: ProjectRowWidget(
+                          project: filteredProjects[index],
+                        ),
+                      );
                     },
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.2,
+                  ),
+                  Center(
+                      child: screenWidth >= 768
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Do you like my portfolio? You can simply ",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                HoverButton(
+                                  text: 'contact me',
+                                  color: const Color(0xff3D5EFC),
+                                  onPressed: () {
+                                    context.go('/contact');
+                                  },
+                                ),
+                              ],
+                            )
+                          : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "Do you like my portfolio? You can simply ",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                HoverButton(
+                                  text: 'contact me',
+                                  color: const Color(0xff3D5EFC),
+                                  onPressed: () {
+                                    context.go('/contact');
+                                  },
+                                ),
+                              ],
+                            )),
+                  SizedBox(
+                    height: screenHeight * 0.2,
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: screenHeight * 0.2,
             ),
             const Footer(),
           ],

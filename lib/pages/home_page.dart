@@ -155,30 +155,55 @@ class PortfolioHome extends StatelessWidget {
                       horizontal: 10,
                       vertical: 80,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        CustomButton(
-                          textColor: const Color(0xff0B3FF7),
-                          text: 'Explore my resume',
-                          color: const Color.fromARGB(255, 139, 162, 246),
-                          onPressed: () {
-                            context.go('/resume');
-                          },
-                        ),
-                        SizedBox(width: screenWidth * 0.05),
-                        const Text("or"),
-                        SizedBox(width: screenWidth * 0.05),
-                        CustomButton(
-                          textColor: Colors.white,
-                          text: 'contact me',
-                          color: const Color(0xff0B3FF7),
-                          onPressed: () {
-                            context.go('/contact');
-                          },
-                        ),
-                      ],
-                    ),
+                    child: screenWidth >= 768
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomButton(
+                                textColor: const Color(0xff0B3FF7),
+                                text: 'Explore my resume',
+                                color: const Color.fromARGB(255, 139, 162, 246),
+                                onPressed: () {
+                                  context.go('/resume');
+                                },
+                              ),
+                              SizedBox(width: screenWidth * 0.05),
+                              const Text("or"),
+                              SizedBox(width: screenWidth * 0.05),
+                              CustomButton(
+                                textColor: Colors.white,
+                                text: 'contact me',
+                                color: const Color(0xff0B3FF7),
+                                onPressed: () {
+                                  context.go('/contact');
+                                },
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomButton(
+                                textColor: const Color(0xff0B3FF7),
+                                text: 'Explore my resume',
+                                color: const Color.fromARGB(255, 139, 162, 246),
+                                onPressed: () {
+                                  context.go('/resume');
+                                },
+                              ),
+                              SizedBox(width: screenWidth * 0.05),
+                              const Text("or"),
+                              SizedBox(width: screenWidth * 0.05),
+                              CustomButton(
+                                textColor: Colors.white,
+                                text: 'contact me',
+                                color: const Color(0xff0B3FF7),
+                                onPressed: () {
+                                  context.go('/contact');
+                                },
+                              ),
+                            ],
+                          ),
                   ),
                   const SizedBox(height: 50),
                 ],

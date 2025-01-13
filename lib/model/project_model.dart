@@ -18,7 +18,6 @@ class Project {
         'assets/model/image1.png',
         'assets/model/image1.png',
         'assets/model/image1.png',
-        'assets/model/image1.png',
       ],
     ),
     Project(
