@@ -34,7 +34,7 @@ class Footer extends StatelessWidget {
                   "Ahsan Bilal",
                   style: TextStyle(
                     fontSize: 24,
-                    // color: Color(0xff3D5EFC),
+                    color: Color(0xff3D5EFC),
                     fontFamily: 'roboto',
                     fontWeight: FontWeight.w100,
                   ),
@@ -84,7 +84,10 @@ class Footer extends StatelessWidget {
                     children: [
                       Text(
                         "Ahsan Bilal",
-                        style: TextStyle(fontSize: 24),
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Color(0xff3D5EFC),
+                        ),
                       ),
                       SizedBox(height: 20),
                       Text(

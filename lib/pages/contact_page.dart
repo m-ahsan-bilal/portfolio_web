@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:ahsan_dev/utils/app_resources.dart';
 import 'package:ahsan_dev/widgets/expandable_textfield.dart';
 import 'package:ahsan_dev/widgets/footer.dart';
@@ -6,6 +8,7 @@ import 'package:ahsan_dev/widgets/hover_icon.dart';
 import 'package:ahsan_dev/services/contact_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bot_toast/bot_toast.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({super.key});
@@ -69,109 +72,76 @@ class _ContactPageState extends State<ContactPage> {
     final messageError = validateMessage(messageController.text);
 
     if (emailError != null) {
-      debugPrint('Validation error: $emailError');
+      print('Validation error: $emailError');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('⚠️ Invalid email'),
+          content: Text('Invalid email', style: TextStyle(fontSize: 13)),
           backgroundColor: Colors.orange,
+          behavior: SnackBarBehavior.floating,
         ),
       );
       return;
     }
-
     if (topicError != null) {
-      debugPrint('Validation error: $topicError');
+      print('Validation error: $topicError');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Invalid topic'),
+          content: Text('Invalid topic', style: TextStyle(fontSize: 13)),
           backgroundColor: Colors.orange,
+          behavior: SnackBarBehavior.floating,
         ),
       );
       return;
     }
-
     if (messageError != null) {
-      print('Validation error: $messageError');
+      debugPrint('Validation error: $messageError');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('⚠️ Invalid message'),
+          content: Text('Invalid message', style: TextStyle(fontSize: 13)),
           backgroundColor: Colors.orange,
+          behavior: SnackBarBehavior.floating,
         ),
       );
       return;
     }
 
     try {
-      // Show loading indicator
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('📤 Sending message...'),
-          backgroundColor: Colors.blue,
-        ),
-      );
-
+      // Show loading indicator (optional)
+      BotToast.showLoading();
       final result = await ContactService.submitContactForm(
         email: emailController.text,
         topic: subjectController.text,
         message: messageController.text,
       );
-
-      debugPrint('Submission success: ${result['message']}');
-      // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('✅ Message sent!'),
-          backgroundColor: Colors.green,
-        ),
-      );
-
+      BotToast.closeAllLoading();
+      print('Submission success: ${result['message']}');
+      // Show success toast
+      BotToast.showText(
+          text: 'Contact Form Submitted!',
+          duration: const Duration(seconds: 2));
       // Clear form
       emailController.clear();
       subjectController.clear();
       messageController.clear();
     } catch (e) {
+      BotToast.closeAllLoading();
       String errorMessage = e.toString();
-      print('Submission error: $errorMessage');
-
-      // Handle specific error types
+      debugPrint('Submission error: $errorMessage');
+      String snackText = 'Error sending message.';
       if (errorMessage.contains('Validation error:')) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              ' Please check your input.',
-              style: TextStyle(fontSize: 16),
-            ),
-            backgroundColor: Colors.orange,
-          ),
-        );
+        snackText = 'Please check your input.';
       } else if (errorMessage.contains('Rate limit')) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Too many submissions. Please wait.'),
-            backgroundColor: Colors.red,
-          ),
-        );
+        snackText = 'Too many submissions. Please wait.';
       } else if (errorMessage.contains('Connection error')) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'Network error. Try again.',
-              style: TextStyle(fontSize: 16),
-            ),
-            backgroundColor: Colors.red,
-          ),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'Error sending message.',
-              style: TextStyle(fontSize: 16),
-            ),
-            backgroundColor: Colors.red,
-          ),
-        );
+        snackText = 'Network error. Try again.';
       }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(snackText, style: const TextStyle(fontSize: 13)),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
     }
   }
 
@@ -194,6 +164,7 @@ class _ContactPageState extends State<ContactPage> {
                     fontSize: 60,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'roboto',
+                    color: Colors.black87,
                   ),
                   textAlign: TextAlign.center,
                   textDirection: TextDirection.ltr,
@@ -256,7 +227,10 @@ class _ContactPageState extends State<ContactPage> {
                                       context: context,
                                       hintText: "Email Address",
                                     ),
-                                    style: const TextStyle(fontSize: 16),
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black87,
+                                    ),
                                   ),
                                   // Subject Field
                                   TextFormField(
@@ -269,7 +243,10 @@ class _ContactPageState extends State<ContactPage> {
                                       context: context,
                                       hintText: "Subject",
                                     ),
-                                    style: const TextStyle(fontSize: 16),
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.black87,
+                                    ),
                                   ),
                                   // Message Field
                                   ExpandableTextField(

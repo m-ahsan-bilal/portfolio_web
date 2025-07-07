@@ -65,7 +65,10 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
                   context: context,
                   hintText: "Message",
                 ),
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black87,
+                ),
               ),
               Positioned(
                   bottom: 8,

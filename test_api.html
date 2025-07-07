@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>Testing Portfolio API</h1>
+    <button onclick="testGet()">Test GET /contacts</button>
+    <button onclick="testPost()">Test POST /contacts</button>
+    <div id="result"></div>
+
+    <script>
+        async function testGet() {
+            try {
+                const response = await fetch('https://portfolioapi-production-95b0.up.railway.app/contacts');
+                const data = await response.json();
+                document.getElementById('result').innerHTML = '<h3>GET Response:</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                document.getElementById('result').innerHTML = '<h3>GET Error:</h3><pre>' + error + '</pre>';
+            }
+        }
+
+        async function testPost() {
+            try {
+                const response = await fetch('https://portfolioapi-production-95b0.up.railway.app/contacts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'test@example.com',
+                        topic: 'Test Topic',
+                        message: 'This is a test message'
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('result').innerHTML = '<h3>POST Response:</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                document.getElementById('result').innerHTML = '<h3>POST Error:</h3><pre>' + error + '</pre>';
+            }
+        }
+    </script>
+</body>
+</html> 

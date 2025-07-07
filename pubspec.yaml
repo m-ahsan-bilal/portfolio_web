@@ -44,6 +44,7 @@ dependencies:
   pdfx: ^2.8.0
   html: ^0.15.5
   http: ^1.1.0
+  bot_toast: ^4.0.4
 
 
 dev_dependencies:

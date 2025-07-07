@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ContactService {
-  // Your deployed Railway backend URL
+  // ✅ CORRECT - Just the base URL
   static const String baseUrl =
       'https://portfolioapi-production-95b0.up.railway.app';
 
@@ -12,14 +12,20 @@ class ContactService {
     required String message,
   }) async {
     try {
+      final url = '$baseUrl/contact';
+      final body = jsonEncode({
+        'email': email,
+        'topic': topic,
+        'message': message,
+      });
+
+      print('Making request to: $url');
+      print('Request body: $body');
+
       final response = await http.post(
-        Uri.parse('$baseUrl/contact'),
+        Uri.parse(url),
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'email': email,
-          'topic': topic,
-          'message': message,
-        }),
+        body: body,
       );
 
       if (response.statusCode == 200) {
