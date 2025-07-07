@@ -9,6 +9,8 @@ class ExpandableTextField extends StatefulWidget {
   final double maxHeight;
   final double dividerHeight;
   final double dividerSpace;
+  final TextEditingController? controller;
+  final VoidCallback? onSendPressed;
   // final Widget child;
 
   const ExpandableTextField({
@@ -18,6 +20,8 @@ class ExpandableTextField extends StatefulWidget {
     this.maxHeight = 300,
     this.dividerHeight = 40,
     this.dividerSpace = 2,
+    this.controller,
+    this.onSendPressed,
   }) : super(key: key);
 
   @override
@@ -27,6 +31,9 @@ class ExpandableTextField extends StatefulWidget {
 class _ExpandableTextFieldState extends State<ExpandableTextField> {
   late double _height, _maxHeight, _dividerHeight, _dividerSpace;
 
+  late final TextEditingController messageController;
+  final messageFocus = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -34,10 +41,10 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
     _maxHeight = widget.maxHeight;
     _dividerHeight = widget.dividerHeight;
     _dividerSpace = widget.dividerSpace;
-  }
 
-  final messageController = TextEditingController();
-  final messageFocus = FocusNode();
+    // Use provided controller or create a new one
+    messageController = widget.controller ?? TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +98,7 @@ class _ExpandableTextFieldState extends State<ExpandableTextField> {
             child: CustomButton(
               text: 'Send Message',
               color: const Color(0xff0B3FF7),
-              onPressed: () {},
+              onPressed: widget.onSendPressed ?? () {},
               textColor: Colors.white,
             ),
           ),

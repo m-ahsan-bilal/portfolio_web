@@ -43,6 +43,7 @@ dependencies:
   google_fonts: ^6.2.1
   pdfx: ^2.8.0
   html: ^0.15.5
+  http: ^1.1.0
 
 
 dev_dependencies:
