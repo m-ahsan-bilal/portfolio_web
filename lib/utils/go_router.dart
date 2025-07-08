@@ -2,6 +2,7 @@ import 'package:ahsan_dev/pages/contact_page.dart';
 import 'package:ahsan_dev/pages/home_page.dart';
 import 'package:ahsan_dev/pages/resume_page.dart';
 import 'package:ahsan_dev/pages/work_page.dart';
+import 'package:ahsan_dev/pages/chatbot_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -38,5 +39,10 @@ List<RouteBase> appRoutesList = [
     path: "/resume",
     name: "resume page",
     builder: (context, state) => const ResumePage(),
+  ),
+  GoRoute(
+    path: "/chatbot",
+    name: "chatbot page",
+    builder: (context, state) => const ChatbotPage(),
   ),
 ];

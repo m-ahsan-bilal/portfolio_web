@@ -12,7 +12,7 @@ class ContactService {
     required String message,
   }) async {
     try {
-      final url = '$baseUrl/contact';
+      const url = '$baseUrl/contact';
       final body = jsonEncode({
         'email': email,
         'topic': topic,

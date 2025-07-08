@@ -1,7 +1,7 @@
 import 'package:ahsan_dev/utils/go_router.dart';
 import 'package:ahsan_dev/utils/themes.dart';
-import 'package:flutter/material.dart';
 import 'package:bot_toast/bot_toast.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,8 +18,10 @@ class MyPortfolioApp extends StatelessWidget {
       theme: AppTheme.lightTheme(context),
       darkTheme: AppTheme.darkTheme(context),
       routerConfig: basicRoutes,
-      builder: BotToastInit(),
-      // navigatorObservers: [BotToastNavigatorObserver()], // Removed for MaterialApp.router
+      debugShowCheckedModeBanner: false,
+      builder: (context, child) {
+        return BotToastInit()(context, ScaffoldMessenger(child: child!));
+      },
     );
   }
 }

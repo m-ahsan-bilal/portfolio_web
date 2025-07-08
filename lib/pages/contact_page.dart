@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:ahsan_dev/utils/app_resources.dart';
+import 'package:ahsan_dev/utils/zbot_toast.dart';
 import 'package:ahsan_dev/widgets/expandable_textfield.dart';
 import 'package:ahsan_dev/widgets/footer.dart';
 import 'package:ahsan_dev/widgets/header.dart';
@@ -71,36 +72,60 @@ class _ContactPageState extends State<ContactPage> {
     final topicError = validateTopic(subjectController.text);
     final messageError = validateMessage(messageController.text);
 
+// validating the conttact form
+// email
     if (emailError != null) {
-      print('Validation error: $emailError');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid email', style: TextStyle(fontSize: 13)),
-          backgroundColor: Colors.orange,
-          behavior: SnackBarBehavior.floating,
-        ),
+      debugPrint('Validation error: $emailError');
+      CustomBotToast.show(
+        message: "Invalid Email",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        align: Alignment.topCenter,
       );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(
+      //     content: Text('Invalid email', style: TextStyle(fontSize: 13)),
+      //     backgroundColor: Colors.orange,
+      //     behavior: SnackBarBehavior.floating,
+      //   ),
+      // );
       return;
     }
     if (topicError != null) {
-      print('Validation error: $topicError');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid topic', style: TextStyle(fontSize: 13)),
-          backgroundColor: Colors.orange,
-          behavior: SnackBarBehavior.floating,
-        ),
+      // topic
+      debugPrint('Validation error: $topicError');
+
+      CustomBotToast.show(
+        message: "Invalid Topic",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        align: Alignment.center,
       );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(
+      //     content: Text('Invalid topic', style: TextStyle(fontSize: 13)),
+      //     backgroundColor: Colors.orange,
+      //     behavior: SnackBarBehavior.floating,
+      //   ),
+      // );
       return;
     }
     if (messageError != null) {
+      // message
       debugPrint('Validation error: $messageError');
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Invalid message', style: TextStyle(fontSize: 13)),
-          backgroundColor: Colors.orange,
-          behavior: SnackBarBehavior.floating,
-        ),
+
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   const SnackBar(
+      //     content: Text('Invalid message', style: TextStyle(fontSize: 13)),
+      //     backgroundColor: Colors.orange,
+      //     behavior: SnackBarBehavior.floating,
+      //   ),
+      // );
+      CustomBotToast.show(
+        message: "Invalid Message",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        align: Alignment.center,
       );
       return;
     }
@@ -114,11 +139,15 @@ class _ContactPageState extends State<ContactPage> {
         message: messageController.text,
       );
       BotToast.closeAllLoading();
-      print('Submission success: ${result['message']}');
+      debugPrint('Submission success: ${result['message']}');
       // Show success toast
-      BotToast.showText(
-          text: 'Contact Form Submitted!',
-          duration: const Duration(seconds: 2));
+      CustomBotToast.show(
+        message: "Form Submitted",
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        align: Alignment.center,
+      );
+
       // Clear form
       emailController.clear();
       subjectController.clear();
@@ -135,13 +164,20 @@ class _ContactPageState extends State<ContactPage> {
       } else if (errorMessage.contains('Connection error')) {
         snackText = 'Network error. Try again.';
       }
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(snackText, style: const TextStyle(fontSize: 13)),
-          backgroundColor: Colors.red,
-          behavior: SnackBarBehavior.floating,
-        ),
+
+      CustomBotToast.show(
+        message: snackText,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        align: Alignment.topCenter,
       );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text(snackText, style: const TextStyle(fontSize: 13)),
+      //     backgroundColor: Colors.red,
+      //     behavior: SnackBarBehavior.floating,
+      //   ),
+      // );
     }
   }
 
